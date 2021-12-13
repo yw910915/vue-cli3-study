@@ -35,11 +35,13 @@ module.exports = function commonConfig(config) {
 
     // 拷贝静态文件
     config.plugin('assets').use(require('copy-webpack-plugin'), [
-        {
-            from: resolve('static'),
-            to: 'static',
-            ignore: ['.*'],
-        }
+        [
+            {
+                from: resolve('static'),
+                to: 'static',
+                ignore: ['.*'],
+            }
+        ]
     ])
 
     if(needPref) {
@@ -48,6 +50,15 @@ module.exports = function commonConfig(config) {
         config.optimization.minimizer('terser').tap(args => {
             args[0].test = /\.js(\?.*)?$/i;
         })
+
+        // gzip support
+        config.plugin('compression').use(require('compression-webpack-plugin'),[
+            {
+                test: /\.js$|\.css$/,
+                threshold: 10240,
+                deleteOriginalAssets: false
+            }
+        ])
     }
 
 }

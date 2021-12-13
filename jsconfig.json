@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json.schemastore.org/jsconfig",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "view/*": ["src/view/*"],
+            "Components/*": ["src/components/*"],
+            "Route/*": ["src/router/*"],
+            "Services/*": ["src/services/*"],
+            "Store/*": ["src/store/*"],
+            "Contants/*": ["src/contants/*"],
+            "Api/*": ["src/api/*"],
+            "Utils/*": ["src/utils/*"],
+            "Static/*": ["static/*"],
+            "Test/*": ["Test/*"]
+        }
+    },
+    "exclude": ["libs/*", "dist/*" ,"node_modules/*"]
+}

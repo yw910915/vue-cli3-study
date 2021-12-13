@@ -5,7 +5,6 @@
  */
 
 const path = require('path');
-// const { config } = require('process');
 const commonConfig = require('./common');
 const proxyTables = require('./proxyTable');
 
